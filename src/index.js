@@ -8,25 +8,35 @@ import connectdb from "./Database/index.js";
 
 const app = express();
 
+const allowedOrigins = [
+    "https://studhive.netlify.app",
+    "http://localhost:3000"  // Add localhost for testing
+];
+
 // Configure CORS
 app.use(cors({
-    origin: "https://studhive.netlify.app/",
-    credentials: true // Allow credentials (cookies, authorization headers, etc.)
+    origin: function (origin, callback) {
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error("Not allowed by CORS"));
+        }
+    },
+    credentials: true
 }));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
+// Handle preflight requests
+app.options("*", cors());
+
 app.use('/', router);
 
 connectdb();
 
-app.listen(process.env.PORT, () => {
-    console.log(`Server running successfully on port ${process.env.PORT}`);
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+    console.log(`Server running successfully on port ${PORT}`);
 });
-
-
-
-
- 
