@@ -10,7 +10,7 @@ const app = express();
 
 // Configure CORS
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: "https://studhive.netlify.app/",
     credentials: true // Allow credentials (cookies, authorization headers, etc.)
 }));
 
