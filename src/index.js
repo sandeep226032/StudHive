@@ -10,7 +10,9 @@ const app = express();
 
 const allowedOrigins = [
     "https://studhive.netlify.app",
-    "http://localhost:3000"  // Add localhost for testing
+    "http://localhost:5173" ,
+    "https://darling-melomakarona-bf84db.netlify.app"
+     // Add localhost for testing
 ];
 
 // Configure CORS
