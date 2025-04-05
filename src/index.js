@@ -33,7 +33,7 @@ app.use(cookieParser());
 app.options("*", cors());
 
 app.use('/', router);
-console.log("hello");
+console.log("hello devlper");
 connectdb();
 
 const PORT = process.env.PORT || 5000;
