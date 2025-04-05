@@ -113,8 +113,9 @@ export const userlogin=async (req,res)=>{
           if(valid){
                  const accesstoken =user.generateaccesstoken();
                  const options={
-                    httponly:false,
-                    secure:false,
+                    httpOnly: true,
+                    sameSite: "None",
+                    secure: true
                     
                  }
                  res.status(200).cookie("accesstoken",accesstoken,options).json({
