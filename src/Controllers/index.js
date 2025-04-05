@@ -143,7 +143,7 @@ export const userlogin=async (req,res)=>{
 
 export const userlogout=async (req,res)=>{
     
- res.status(200).clearCookie("accesstoken",{ sameSite:'None'}).json({
+ res.status(200).clearCookie("accesstoken",{ sameSite:'None',secure: true}).json({
     message:"Logged out successfully"
  })
     
