@@ -215,3 +215,11 @@ export const displaycomment=async (req,res)=>{
     }
     
 }
+export const checkauth=()=>{
+     if(req.email){
+        res.status(200).json({
+            message:"logged in",
+            sign:true,
+        })
+     }
+}
