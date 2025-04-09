@@ -7,7 +7,7 @@ const verifyjwt=async (req,res,next)=>{
     
 const token=req.cookies?.accesstoken||req.header("Authorization")?.replace("Bearer ","");
 if(!token){
-      return res.status(400).json({
+      return res.json({
         message:"you are not logged in",
         flag:false,
         
