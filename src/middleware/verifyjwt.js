@@ -1,6 +1,6 @@
 import dotenv from "dotenv";
 dotenv.config();
-import jwt, { sign } from "jsonwebtoken";
+import jwt from "jsonwebtoken";
 import usermodel from "../models/usermodel.js";
 
 const verifyjwt=async (req,res,next)=>{
@@ -9,7 +9,7 @@ const token=req.cookies?.accesstoken||req.header("Authorization")?.replace("Bear
 if(!token){
        res.status(400).json({
         message:"you are not logged in",
-        sign:false,
+        flag:false,
         
     })
 }

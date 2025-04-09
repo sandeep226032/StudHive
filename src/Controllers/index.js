@@ -219,7 +219,7 @@ export const checkauth=(req,res)=>{
      if(req.email){
         res.status(200).json({
             message:"logged in",
-            sign:true,
+            flag:true,
         })
      }
 }
