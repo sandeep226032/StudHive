@@ -7,8 +7,9 @@ const verifyjwt=async (req,res,next)=>{
     
 const token=req.cookies?.accesstoken||req.header("Authorization")?.replace("Bearer ","");
 if(!token){
-      return res.status(400).json({
+      return res.status(200).json({
         message:"you are not logged in",
+        flag:false,
         })
 }
 try {
@@ -16,6 +17,7 @@ try {
     await usermodel.findById(decodedtoken._id,{email:1,_id:1}).then((response)=>{
         req.email=response.email;
         req._id=response._id;
+        req.username=response.username
         next();
     }).catch((error)=>{
         res.status(401).json({

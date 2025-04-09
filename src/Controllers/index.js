@@ -216,14 +216,9 @@ export const displaycomment=async (req,res)=>{
     
 }
 export const checkauth=(req,res)=>{
-    const token=req.cookies?.accesstoken||req.header("Authorization")?.replace("Bearer ","");
-    if(!token){
-        res.json({
-            flag:false,
-        })
-    }else{
-        res.json({
-            flag:true,
-        })
-    }
+   const username=req.username;
+   res.status(200).json({
+    flag:true,
+    username:username
+   })
 }

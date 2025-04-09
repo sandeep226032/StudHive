@@ -13,5 +13,5 @@ router.patch("/likes",handelinglikes);
 router.patch("/dislikes",handelingdislikes);
 router.post("/comments",handelcomment);
 router.post("/seecomments",displaycomment);
-router.get("/checkauth",checkauth);
+router.get("/checkauth",verifyjwt,checkauth);
 
