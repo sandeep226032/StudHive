@@ -215,7 +215,7 @@ export const displaycomment=async (req,res)=>{
     }
     
 }
-export const checkauth=()=>{
+export const checkauth=(req,res)=>{
      if(req.email){
         res.status(200).json({
             message:"logged in",
