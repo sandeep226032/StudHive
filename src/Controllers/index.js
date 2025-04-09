@@ -219,6 +219,6 @@ export const checkauth=(req,res)=>{
    const username=req.username;
    res.status(200).json({
     flag:true,
-    username:username
+    username:username,
    })
 }
