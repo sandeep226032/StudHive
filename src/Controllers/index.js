@@ -217,8 +217,10 @@ export const displaycomment=async (req,res)=>{
 }
 export const checkauth=(req,res)=>{
    const username=req.username;
+   console.log(username);
    res.status(200).json({
     flag:true,
-    username:username,
+    username,
+    message:"ok"
    })
 }
