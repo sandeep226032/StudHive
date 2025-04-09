@@ -216,10 +216,14 @@ export const displaycomment=async (req,res)=>{
     
 }
 export const checkauth=(req,res)=>{
-     if(req.email){
+    const token=req.cookies?.accesstoken||req.header("Authorization")?.replace("Bearer ","");
+    if(!token){
         res.json({
-            message:"logged in",
+            flag:false,
+        })
+    }else{
+        res.json({
             flag:true,
         })
-     }
+    }
 }
