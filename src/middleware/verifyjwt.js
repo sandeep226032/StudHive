@@ -14,7 +14,7 @@ if(!token){
 }
 try {
     const decodedtoken=jwt.verify(token,process.env.ACCESSTOKEN_SECRET)
-    await usermodel.findById(decodedtoken._id,{email:1,_id:1}).then((response)=>{
+    await usermodel.findById(decodedtoken._id,{email:1,_id:1,username:1}).then((response)=>{
         req.email=response.email;
         req._id=response._id;
         req.username=response.username

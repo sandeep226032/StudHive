@@ -220,7 +220,7 @@ export const checkauth=(req,res)=>{
    console.log(username);
    res.status(200).json({
     flag:true,
-    username,
+    username:username,
     message:"ok"
    })
 }
