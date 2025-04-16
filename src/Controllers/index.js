@@ -232,7 +232,7 @@ export const userpost=async(req,res)=>{
         })
     }
     try {
-        const response=await newsmodel.find({username:username});
+        const response=await newsmodel.find({uploader:username});
         res.status(200).json({
             message:"ok",
             data:response
