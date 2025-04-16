@@ -224,3 +224,20 @@ export const checkauth=(req,res)=>{
     message:"ok"
    })
 }
+export const userpost=async(req,res)=>{
+    const {username}=req.body;
+    if(!username){
+        res.status(400).json({
+            message:"User not login"
+        })
+    }
+    try {
+        const response=await newsmodel.find({username:username});
+        res.status(200).json({
+            message:"ok",
+            data:response
+        })
+    } catch (error) {
+        console.log(error,"error in userpost");
+    }
+}
