@@ -9,7 +9,7 @@ import connectdb from "./Database/index.js";
 const app = express();
 
 const allowedOrigins = [
-    "https://68053f9a81d35c92f54a99bc--graceful-pudding-20f537.netlify.app/",
+    "https://68053f9a81d35c92f54a99bc--graceful-pudding-20f537.netlify.app",
     "http://localhost:5173" ,
     "https://darling-melomakarona-bf84db.netlify.app"
      // Add localhost for testing
