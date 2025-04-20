@@ -1,5 +1,5 @@
 import express from "express";
-import { newsuploader,newsdisplay,userregister ,userlogin,userlogout,handelinglikes, handelingdislikes, handelcomment, displaycomment, checkauth, userpost, handlesuggestion, deleteuserpost} from "../Controllers/index.js";
+import { newsuploader,newsdisplay,userregister ,userlogin,userlogout,handelinglikes, handelingdislikes, handelcomment, displaycomment, checkauth, userpost, deleteuserpost} from "../Controllers/index.js";
 export const router = express.Router();
 import { upload } from "../middleware/multer.js";
 import verifyjwt from "../middleware/verifyjwt.js";
