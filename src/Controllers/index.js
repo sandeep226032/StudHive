@@ -248,25 +248,7 @@ const openai=new OpenAI({
     apiKey:process.env.AI_SUGGESTION
 
 });
-export const handlesuggestion=async(req,res)=>{
-    const prompt=req.body;
-    try {
-    
-    const response = await openai.chat.completions.create({
-        model: "gpt-4o-mini",
-        store: true,
-        messages: [
-          {"role": "user", "content": "write a haiku about ai"},
-        ],
-});
 
-console.log(response.output_text);
-res.send(response.output_text)
-
-    } catch (error) {
-        console.log(error,"error in handlesuggestion");
-    }
-}
 export const deleteuserpost=async(req,res)=>{
         const {id}=req.params;
         try {

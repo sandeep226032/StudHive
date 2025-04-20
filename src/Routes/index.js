@@ -15,7 +15,7 @@ router.post("/comments",handelcomment);
 router.post("/seecomments",displaycomment);
 router.get("/checkauth",verifyjwt,checkauth);
 router.post("/yourpost",userpost);
-router.post("/suggestion",handlesuggestion);
+
 router.delete("/deletepost/:id",deleteuserpost);
 
 
