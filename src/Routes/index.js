@@ -1,5 +1,5 @@
 import express from "express";
-import { newsuploader,newsdisplay,userregister ,userlogin,userlogout,handelinglikes, handelingdislikes, handelcomment, displaycomment, checkauth, userpost} from "../Controllers/index.js";
+import { newsuploader,newsdisplay,userregister ,userlogin,userlogout,handelinglikes, handelingdislikes, handelcomment, displaycomment, checkauth, userpost, handlesuggestion, deleteuserpost} from "../Controllers/index.js";
 export const router = express.Router();
 import { upload } from "../middleware/multer.js";
 import verifyjwt from "../middleware/verifyjwt.js";
@@ -15,5 +15,7 @@ router.post("/comments",handelcomment);
 router.post("/seecomments",displaycomment);
 router.get("/checkauth",verifyjwt,checkauth);
 router.post("/yourpost",userpost);
+router.post("/suggestion",handlesuggestion);
+router.delete("/deletepost/:id",deleteuserpost);
 
 

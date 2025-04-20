@@ -1,8 +1,11 @@
 import { response } from "express";
+import dotenv from "dotenv";
+dotenv.config();
 import { uploaderclodinary } from "../Utils/cloudinary.js";
 import newsmodel from "../models/newsmodel.js";
 import usermodel from "../models/usermodel.js";
 import commentmodel from "../models/commentmodel.js";
+import OpenAI from "openai";
 import fs from "fs";
 
 export const newsuploader = (req,res) => {
@@ -240,4 +243,45 @@ export const userpost=async(req,res)=>{
     } catch (error) {
         console.log(error,"error in userpost");
     }
+}
+const openai=new OpenAI({
+    apiKey:process.env.AI_SUGGESTION
+
+});
+export const handlesuggestion=async(req,res)=>{
+    const prompt=req.body;
+    try {
+    
+    const response = await openai.chat.completions.create({
+        model: "gpt-4o-mini",
+        store: true,
+        messages: [
+          {"role": "user", "content": "write a haiku about ai"},
+        ],
+});
+
+console.log(response.output_text);
+res.send(response.output_text)
+
+    } catch (error) {
+        console.log(error,"error in handlesuggestion");
+    }
+}
+export const deleteuserpost=async(req,res)=>{
+        const {id}=req.params;
+        try {
+            const deletepost=await newsmodel.findByIdAndDelete(id);
+            if(!deletepost){
+                res.status(200).json({
+                    message:"Invalid post"
+                })
+            }
+            res.status(200).json({
+                message:"Post deleted succesfully",
+                data:deletepost._id
+            })
+        } catch (error) {
+            console.log(error,"error in deleteuserpost");
+        }
+
 }
