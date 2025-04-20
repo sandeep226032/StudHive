@@ -5,7 +5,6 @@ import { uploaderclodinary } from "../Utils/cloudinary.js";
 import newsmodel from "../models/newsmodel.js";
 import usermodel from "../models/usermodel.js";
 import commentmodel from "../models/commentmodel.js";
-import OpenAI from "openai";
 import fs from "fs";
 
 export const newsuploader = (req,res) => {
@@ -244,10 +243,7 @@ export const userpost=async(req,res)=>{
         console.log(error,"error in userpost");
     }
 }
-const openai=new OpenAI({
-    apiKey:process.env.AI_SUGGESTION
 
-});
 
 export const deleteuserpost=async(req,res)=>{
         const {id}=req.params;
